@@ -1,0 +1,79 @@
+<div class="page-header" style="background-color: #808080; color:#FFFFFF;">
+	<div class="container">
+		<h1>Configurações</h1>
+	</div>
+</div>
+
+<div class="container">
+	<form>
+		<div class="text-center">
+			<h2>Configurações do Usuário</h2>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-lg-12 text-center">
+				<div class="form-check">
+					<input [ngModelOptions]="{standalone: true}" [(ngModel)]="comandoVoz" type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Comando de voz</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-12 text-center">
+				<div class="form-check">
+					<input [ngModelOptions]="{standalone: true}" [(ngModel)]="excluirAtividade" type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Excluir Atividade</label>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="isLoaded" class="form-group row">
+			<div class="col-lg-5"></div>
+			<div class="col-lg-2 text-center">
+				<select [ngModelOptions]="{standalone: true}" [(ngModel)]="atividade" class="form-control">
+					<option [value]="act" *ngFor="let act of activities">{{act}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="text-center">
+			<h2>Definir atividades</h2>
+		</div>
+		
+
+		<div class="form-group row">
+			<div class="col-lg-4 text-center">
+			</div>
+			<div class="col-lg-2 text-center">
+				<input (change) = "putFace(0)" [ngModelOptions]="{standalone: true}" [(ngModel)]="faces[0]" type="text" class="form-text-input">
+			</div>
+			<div class="col-lg-2 text-center">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="faces[1]" type="text" class="form-text-input">
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-4 text-center">
+			</div>
+			<div class="col-lg-2 text-center">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="faces[2]" type="text" class="form-text-input">
+			</div>
+			<div class="col-lg-2 text-center">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="faces[3]" type="text" class="form-text-input">
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-4 text-center">
+			</div>
+			<div class="col-lg-2 text-center">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="faces[4]" type="text" class="form-text-input">
+			</div>
+		</div>
+		
+
+		<div class="form-group row">
+			<div class="col-lg-12 text-center">
+				<button (click)="onSubmit()" type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+		
+	</form>
+</div>

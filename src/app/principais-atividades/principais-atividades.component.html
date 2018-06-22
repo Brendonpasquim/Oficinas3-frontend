@@ -1,0 +1,42 @@
+<h3 class="text-center" style="color:#612F74;">Principais Atividades</h3>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="text-center" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+			 	<div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+					  <label ngbButtonLabel class="btn-secondary">
+					    <input ngbButton type="radio" value="dia" (click)="onSelect('dia')">Dia
+					  </label>
+					  <label ngbButtonLabel class="btn-secondary">
+					    <input ngbButton type="radio" value="semana" (click)="onSelect('semana')">Semana
+					  </label>
+					  <label ngbButtonLabel class="btn-secondary">
+					    <input ngbButton type="radio" value="mes" (click)="onSelect('mes')">Mês
+					  </label>
+					  <label ngbButtonLabel class="btn-secondary">
+					    <input ngbButton type="radio" value="ano" (click)="onSelect('ano')">Ano
+					  </label>
+				</div>
+				<hr>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="row" *ngIf="isLoaded">
+		<div class="col-lg-6">
+			<app-table-principais [atividades]="atividades"></app-table-principais>
+		</div>
+		<div class="col-lg-6">
+			<app-chart-principais [atividades]="atividades"></app-chart-principais>
+		</div>
+	</div>
+</div>
+
+
+
+	
+	
+
+
+

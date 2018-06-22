@@ -1,0 +1,16 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col"></th>
+			<th scope="col">Atividade</th>
+			<th scope="col">Horas</th>
+		</tr>
+	</thead>
+	<tbody *ngFor="let atividade of atividades | slice:0:3; let i = index">
+		<tr>
+			<th scope="row">{{i+1}}</th>
+			<td>{{atividade.name}}</td>
+			<td>{{(atividade.time/3600000 - (atividade.time%3600000/3600000)).toFixed(0)}}{{atividade.time | date: ":mm"}}</td>
+		</tr>
+	</tbody>
+</table>

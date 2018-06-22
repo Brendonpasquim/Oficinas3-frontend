@@ -1,0 +1,30 @@
+<table class="table">
+	<thead>
+		<tr *ngIf="periodo == 'semana' || periodo == 'mes'">
+			<th scope="col"></th>
+			<th scope="col">Atividade</th>
+			<th scope="col">De {{ labels[0] | date :  "dd/MM" }} a {{ labels[1] | date :  "dd/MM" }}</th>
+			<th scope="col">De {{ labels[2] | date :  "dd/MM" }} a {{ labels[3] | date :  "dd/MM" }}</th>
+			<th scope="col">De {{ labels[4] | date :  "dd/MM" }} a {{ labels[5] | date :  "dd/MM" }}</th>
+		</tr>
+		<tr *ngIf="periodo == 'ano' || periodo == 'semestre'">
+			<th scope="col"></th>
+			<th scope="col">Atividade</th>
+			<th scope="col">De {{ labels[0] | date :  "dd/MM/yy" }} a {{ labels[1] | date :  "dd/MM/yy" }}</th>
+			<th scope="col">De {{ labels[2] | date :  "dd/MM/yy" }} a {{ labels[3] | date :  "dd/MM/yy" }}</th>
+			<th scope="col">De {{ labels[4] | date :  "dd/MM/yy" }} a {{ labels[5] | date :  "dd/MM/yy" }}</th>
+		</tr>
+	</thead>
+	<tbody *ngIf="atividades != null">
+		<tr *ngFor="let atividade of atividades | slice:0:5; let i = index">
+			<th scope="row">{{i+1}}</th>
+			<td>{{atividade.name}}</td>
+			<td *ngIf="tipo!='progressao-p'">{{(atividade.value1/3600000 - (atividade.value1%3600000/3600000)).toFixed(0)}}:{{atividade.value1 | date: "mm"}}</td>
+			<td *ngIf="tipo!='progressao-p'">{{(atividade.value2/3600000 - (atividade.value2%3600000/3600000)).toFixed(0)}}:{{atividade.value2 | date: "mm"}}</td>
+			<td *ngIf="tipo!='progressao-p'">{{(atividade.value3/3600000 - (atividade.value3%3600000/3600000)).toFixed(0)}}:{{atividade.value3 | date: "mm"}}</td>
+			<td *ngIf="tipo=='progressao-p'">{{atividade.value1 | percent}}</td>
+			<td *ngIf="tipo=='progressao-p'">{{atividade.value2 | percent}}</td>
+			<td *ngIf="tipo=='progressao-p'">{{atividade.value3 | percent}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Usuário</label>
+			    <input (change)="onChange()" [ngModelOptions]="{standalone: true}" [(ngModel)]="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Digite seu nome de usuário">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Senha</label>
+			    <input (change)="onChange()" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+			  </div>
+			  <button *ngIf="isValid" (click)="onSubmit()" type="submit" class="btn btn-primary">Login</button>
+			</form>
+		</div>
+	</div>
+	<div *ngIf="rejected" class="row">
+		<div class="col-md-12 text-center">
+			<h4>Usuário/Senha Inválido</h4>
+		</div>
+	</div>
+</div>
