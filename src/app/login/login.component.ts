@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
 		password: '',
 	};
 
-	private username= '';
- 	private password= '';
- 	private isValid = false;
-  private rejected = false;
+	public username= '';
+ 	public password= '';
+ 	public isValid = false;
+  public rejected = false;
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { 
     this.user = this.authenticationService.getUser();

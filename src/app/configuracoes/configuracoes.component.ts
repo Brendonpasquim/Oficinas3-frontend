@@ -12,12 +12,12 @@ import { ConfiguracaoService } from '../configuracao.service';
 export class ConfiguracoesComponent implements OnInit {
 
 	private atividade = '';
-	private excluirAtividade = false;
-	private comandoVoz: false;
+	public excluirAtividade = false;
+	public comandoVoz: false;
 	private user: any;
 	private activities = [''];
-	private isLoaded = false;
-  private faces = ['','','','','','',''];
+	public isLoaded = false;
+  public faces = ['','','','','','',''];
 
   constructor(
   	private atividadeService: AtividadeService, 

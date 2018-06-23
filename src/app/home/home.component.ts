@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  private isAuthenticated = false;
+  public isAuthenticated = false;
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
