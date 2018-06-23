@@ -9,8 +9,8 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class NavbarComponent implements OnInit {
 
-	private user: any;
-  private username = '';
+	public user: any;
+  public username = '';
   	
   	constructor(private authenticationService: AuthenticationService, router: Router) {
   		router.events.subscribe((val) => {
